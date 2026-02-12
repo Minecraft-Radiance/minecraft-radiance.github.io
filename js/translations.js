@@ -60,6 +60,7 @@ window.translations = {
         'download.preview.meta': '支持 Windows & Linux<br>需兼容 Vulkan RT 的 GPU',
         'download.windows_only.meta': '目前仅支持 Windows<br>需兼容 Vulkan RT 的 GPU',
         'download.btn_docs': '阅读安装文档',
+        'download.buymeacoffee': '赞助支持 (Buy Me a Coffee)',
         'docs.install.main_title': '安装指南',
         'docs.install.req_title': '系统需求',
         'docs.install.req_list': '支持 VK_KHR_ray_tracing_pipeline 的 GPU （RTX 20系+，RX 9070 XT，Intel Arc等，具体查询<a href="https://vulkan.gpuinfo.org/">这里</a>）',
@@ -111,6 +112,7 @@ window.translations = {
         'changelog.v0_1_0.item3': '基础 hardware 光线追踪管线与路径追踪支持,加入 DLSS 4.5 支持',
         'changelog.main_title': 'Radiance 版本历史',
         'footer.copyright': 'Radiance. 非官方 Minecraft Mod 项目.',
+        'footer.sponsor': '赞助',
         'footer.credits': 'Features Vulkan, DLSS and FSR technology. All trademarks are property of their respective owners.'
     },
     'en': {
@@ -174,6 +176,7 @@ window.translations = {
         'download.preview.meta': 'Supports Windows & Linux<br>Requires Vulkan RT compatible GPU',
         'download.windows_only.meta': 'Windows Only for now<br>Requires Vulkan RT compatible GPU',
         'download.btn_docs': 'Read Installation Docs',
+        'download.buymeacoffee': 'Buy Me a Coffee',
         'docs.install.main_title': 'Installation Guide',
         'docs.install.req_title': 'System Requirements',
         'docs.install.req_list': 'GPU with VK_KHR_ray_tracing_pipeline extension (RTX 20 series+, RX 9070 XT, Intel Arc, etc. Check details <a href="https://vulkan.gpuinfo.org/">here</a>)',
@@ -225,6 +228,7 @@ window.translations = {
         'changelog.v0_1_0.item3': 'Basic hardware Ray Tracing, and path tracing support. Features DLSS 4.5.',
         'changelog.main_title': 'Radiance Version History',
         'footer.copyright': 'Radiance. Unofficial Minecraft Mod Project.',
+        'footer.sponsor': 'Sponsor',
         'footer.credits': 'Features Vulkan, DLSS and FSR technology. All trademarks are property of their respective owners.'
     }
 };
