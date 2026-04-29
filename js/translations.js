@@ -56,9 +56,11 @@ window.translations = {
         'download.title': '下载 Alpha 版',
         'download.github.title': 'GitHub Release (目前可用)',
         'download.curseforge.title': 'CurseForge (目前可用)',
-        'download.modrinth.title': 'Modrinth (目前可用)',
+        'download.modrinth_windows.title': 'Modrinth (Windows)',
+        'download.modrinth_linux.title': 'Modrinth (Linux)',
         'download.preview.meta': '支持 Windows & Linux<br>需兼容 Vulkan RT 的 GPU',
         'download.windows_only.meta': '目前仅支持 Windows<br>需兼容 Vulkan RT 的 GPU',
+        'download.linux_only.meta': '目前仅支持 Linux<br>需兼容 Vulkan RT 的 GPU',
         'download.btn_docs': '阅读安装文档',
         'download.buymeacoffee': '赞助支持 (Buy Me a Coffee)',
         'docs.install.main_title': '安装指南',
@@ -66,16 +68,39 @@ window.translations = {
         'docs.install.req_list': '支持 VK_KHR_ray_tracing_pipeline 的 GPU （RTX 20系+，RX 9070 XT，Intel Arc等，具体查询<a href="https://vulkan.gpuinfo.org/">这里</a>）',
         'docs.install.install_title': '安装步骤',
         'docs.install.install_step': `<ol class="list-decimal list-inside space-y-4"><li>将 Mod 文件放入 <code>mods</code> 文件夹。</li><li>如果你是 NVIDIA 用户，请下载下方列出的文件并放入 <code>.minecraft/radiance</code> 文件夹（如果文件夹不存在，请手动创建）。<div class="mt-4 space-y-4 ml-6"><div><h4 class="text-orange-400 font-bold mb-2">Windows (从<a href="https://github.com/NVIDIA/DLSS/tree/v310.5.3/lib/Windows_x86_64/rel" class="underline text-orange-400" target="_blank">此处</a>下载)</h4><ul class="list-disc list-inside text-sm text-gray-300"><li><code>nvngx_dlss.dll</code></li><li><code>nvngx_dlssd.dll</code></li></ul></div><div><h4 class="text-orange-400 font-bold mb-2">Linux (从<a href="https://github.com/NVIDIA/DLSS/tree/v310.5.3/lib/Linux_x86_64/rel" class="underline text-orange-400" target="_blank">此处</a>下载)</h4><ul class="list-disc list-inside text-sm text-gray-300"><li><code>libnvidia-ngx-dlss.so.310.5.3</code></li><li><code>libnvidia-ngx-dlssd.so.310.5.3</code></li></ul></div></div></li></ol>
+<div class="bg-yellow-900/30 border border-yellow-500/50 p-4 mt-8 rounded text-sm text-yellow-200"><span class="font-bold">注意：</span> Windows 用户首先请尝试处理（重命名、删除等）JDK bin 文件夹（<code>{JDK路径}/bin/</code>）中的 <code>msvcp140.dll</code>, <code>vcruntime140.dll</code> 和 <code>vcruntime140_1.dll</code>，使 these 文件在该文件夹中不存在。此步骤旨在移除 JDK 对这些库的依赖。然后，安装最新的 <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" class="underline">Microsoft Visual C++ Redistributable</a>。</div>
         <div class="mt-10 border-t border-white/10 pt-8">
-            <h4 class="text-orange-400 font-bold mb-4">(重要) PBR 材质包设置</h4>
-            <p class="text-sm text-gray-300 mb-4">目前，Radiance 需要一点小的文件结构修改，才能使用 PBR 材质包。这可能会在接下来的版本里面被简化掉。</p>
+            <h4 class="text-orange-400 font-bold mb-4">(重要) PBR 材质包设置 (适用于 v0.1.4-alpha 之前的版本)</h4>
+            <p class="text-sm text-gray-300 mb-4">从 v0.1.4-alpha 开始，Radiance 已支持直接加载 labPBR 纹理，无需任何预处理。如果你使用的是旧版本，请参考以下步骤：</p>
             <ul class="list-decimal list-inside space-y-3 text-sm text-gray-300">
                 <li>解压材质包。</li>
                 <li>进入解压出来的材质包，将 <code>assets/minecraft/textures/**/*_s.png</code> 移动到 <code>assets/minecraft/textures/specular/**/*_s.png</code>，以及 <code>assets/minecraft/textures/**/*_n.png</code> 移动到 <code>assets/minecraft/textures/normal/**/*_n.png</code>。<br><span class="text-gray-500 italic">这背后的原因是 Radiance 会给 specular 和 normal 贴图单独创建内置的贴图纹理，这个移动让原版不自己加载这些贴图，从而省下巨量内存。</span></li>
                 <li>将处理好的文件夹重新压缩。</li>
             </ul>
-        </div>
-        <div class="bg-yellow-900/30 border border-yellow-500/50 p-4 mt-8 rounded text-sm text-yellow-200"><span class="font-bold">注意：</span> Windows 用户首先请尝试处理（重命名、删除等）JDK bin 文件夹（<code>{JDK路径}/bin/</code>）中的 <code>msvcp140.dll</code>, <code>vcruntime140.dll</code> 和 <code>vcruntime140_1.dll</code>，使这些文件在该文件夹中不存在。此步骤旨在移除 JDK 对这些库的依赖。然后，安装最新的 <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" class="underline">Microsoft Visual C++ Redistributable</a>。</div><p class="mt-8 text-gray-400 text-sm italic">更详细的步骤请参考：<a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="text-orange-400 underline ml-1">Radiance Github Repo</a></p>`,
+        </div><p class="mt-8 text-gray-400 text-sm italic">更详细的步骤请参考：<a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="text-orange-400 underline ml-1">Radiance Github Repo</a></p>`,
+        'changelog.v0_1_5.badge': 'ALPHA',
+        'changelog.v0_1_5.title': 'v0.1.5-alpha',
+        'changelog.v0_1_5.date': '2026-04-30',
+        'changelog.v0_1_5.item1': '支持独立着色器包 (Shaderpacks)：内置 [Vanilla PT] 和 [Advanced] 版本，支持基础路径追踪、法线贴图、视差映射、焦散水体、ReSTIR 直接光采样（仅限 Advanced）、体积光/云及动态模糊',
+        'changelog.v0_1_5.item2': '新增用于直接光采样的区块发光收集：详情参阅 Advanced Shaderpack 及手册',
+        'changelog.v0_1_5.item3': '多线程增强区块加载性能',
+        'changelog.v0_1_5.item4': '材质包重载速度显著提升 (达 3 倍)',
+        'changelog.v0_1_5.item5': '显著减少 RAM 与 VRAM 占用',
+        'changelog.v0_1_5.item6': '大幅缩短管线重建时间',
+        'changelog.v0_1_5.item7': '修复大量已知细节 Bug',
+        'changelog.v0_1_5.item8': '即将支持 1.21.1 和 1.20.1 版本',
+        'changelog.v0_1_4.badge': 'ALPHA',
+        'changelog.v0_1_4.title': 'v0.1.4-alpha',
+        'changelog.v0_1_4.date': '2026-03-21',
+        'changelog.v0_1_4.item1': '重写管线设置：新增预设模式以简化设置，并添加默认模块位置以避免模块重叠',
+        'changelog.v0_1_4.item2': '简化 labPBR 纹理加载（无需预处理）',
+        'changelog.v0_1_4.item3': '增强色调映射 (Tone Mapping)：添加中心模式（基于准星周围像素）和全局模式，增加更多映射方法并公开更多设置',
+        'changelog.v0_1_4.item4': '集成 Nvidia SHaRC 和 XeSS SR（仅限 Windows）',
+        'changelog.v0_1_4.item5': '改进光线追踪模块：公开部分 RT 着色器以供运行时修改（实验性），优化内部着色器以减少寄存器和 SM 使用，分离反射和折射路径',
+        'changelog.v0_1_4.item6': '重写 NRD 模块：遵循 NRD 示例，改进 Reblur 反射效果，公开几乎所有 ReBlur 设置',
+        'changelog.v0_1_4.item7': '添加基础发光纹理支持',
+        'changelog.v0_1_4.item8': '问题修复：修复特定时间纯黑、宽字符路径、DLSS 模式设置、追踪路径中的选择框/碰撞框、不正确的 labPBR 解码、手部渲染异常、Vulkan 纹理格式、模块偏移、内存泄漏以及草方块侧面生物群系纹理丢失等问题',
+        'changelog.v0_1_4.item9': '移除对 DLSS 的硬性依赖（若缺少 DLSS 库将默认使用 NRD）',
         'changelog.v0_1_1.badge': '预发布',
         'changelog.v0_1_1.title': 'v0.1.1-preview',
         'changelog.v0_1_1.date': '2026-01-02',
@@ -171,10 +196,12 @@ window.translations = {
         'features_page.upscale.point3': 'Intel XeSS - Support In Progress',
         'download.title': 'Download Alpha Build',
         'download.github.title': 'GitHub Release (Available Now)',
-        'download.modrinth.title': 'Modrinth (Available Now)',
         'download.curseforge.title': 'CurseForge (Available Now)',
+        'download.modrinth_windows.title': 'Modrinth (Windows)',
+        'download.modrinth_linux.title': 'Modrinth (Linux)',
         'download.preview.meta': 'Supports Windows & Linux<br>Requires Vulkan RT compatible GPU',
         'download.windows_only.meta': 'Windows Only for now<br>Requires Vulkan RT compatible GPU',
+        'download.linux_only.meta': 'Linux Only for now<br>Requires Vulkan RT compatible GPU',
         'download.btn_docs': 'Read Installation Docs',
         'download.buymeacoffee': 'Buy Me a Coffee',
         'docs.install.main_title': 'Installation Guide',
@@ -182,16 +209,39 @@ window.translations = {
         'docs.install.req_list': 'GPU with VK_KHR_ray_tracing_pipeline extension (RTX 20 series+, RX 9070 XT, Intel Arc, etc. Check details <a href="https://vulkan.gpuinfo.org/">here</a>)',
         'docs.install.install_title': 'Installation Steps',
         'docs.install.install_step': `<ol class="list-decimal list-inside space-y-4"><li>Place the mod file into your Minecraft <code>mods</code> folder.</li><li>If you are an NVIDIA user, download the files listed below to the <code>.minecraft/radiance</code> folder (create it if it doesn't exist).<div class="mt-4 space-y-4 ml-6"><div><h4 class="text-orange-400 font-bold mb-2">Windows (Download from <a href="https://github.com/NVIDIA/DLSS/tree/v310.5.3/lib/Windows_x86_64/rel" class="underline text-orange-400" target="_blank">here</a>)</h4><ul class="list-disc list-inside text-sm text-gray-300"><li><code>nvngx_dlss.dll</code></li><li><code>nvngx_dlssd.dll</code></li></ul></div><div><h4 class="text-orange-400 font-bold mb-2">Linux (Download from <a href="https://github.com/NVIDIA/DLSS/tree/v310.5.3/lib/Linux_x86_64/rel" class="underline text-orange-400" target="_blank">here</a>)</h4><ul class="list-disc list-inside text-sm text-gray-300"><li><code>libnvidia-ngx-dlss.so.310.5.3</code></li><li><code>libnvidia-ngx-dlssd.so.310.5.3</code></li></ul></div></div></li></ol>
+<div class="bg-yellow-900/30 border border-yellow-500/50 p-4 mt-8 rounded text-sm text-yellow-200"><span class="font-bold">NOTE:</span> For Windows users, first, try to manipulate (rename, delete, etc.) the <code>msvcp140.dll</code>, <code>vcruntime140.dll</code> and <code>vcruntime140_1.dll</code> in the JDK's bin folder (<code>{JDK_PATH}/bin/</code>) so that these files do not exist in that folder. This step aims to remove the JDK's dependency on those libraries. Then, install the latest <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Microsoft Visual C++ Redistributable</a>.</div>
         <div class="mt-10 border-t border-white/10 pt-8">
-            <h4 class="text-orange-400 font-bold mb-4">(Important) PBR Texture Packs</h4>
-            <p class="text-sm text-gray-300 mb-4">Currently, to enable PBR texture packs, small adaption is necessary to allow multiplexing. This maybe simplified in further versions.</p>
+            <h4 class="text-orange-400 font-bold mb-4">(Important) PBR Texture Packs (For versions prior to v0.1.4-alpha)</h4>
+            <p class="text-sm text-gray-300 mb-4">Starting from v0.1.4-alpha, Radiance supports loading labPBR textures directly without any preprocessing. If you are using an older version, please follow these steps:</p>
             <ul class="list-decimal list-inside space-y-3 text-sm text-gray-300">
                 <li>Unzip the texture pack.</li>
                 <li>Go into the unzipped folder, move <code>assets/minecraft/textures/**/*_s.png</code> to <code>assets/minecraft/textures/specular/**/*_s.png</code> and <code>assets/minecraft/textures/**/*_n.png</code> to <code>assets/minecraft/textures/normal/**/*_n.png</code>.<br><span class="text-gray-500 italic">The fact behind is that Radiance will create separate texture atlases for specular and normal textures. This disables vanilla minecraft to read them (4x memory save).</span></li>
                 <li>Zip the folder.</li>
             </ul>
-        </div>
-        <div class="bg-yellow-900/30 border border-yellow-500/50 p-4 mt-8 rounded text-sm text-yellow-200"><span class="font-bold">NOTE:</span> For Windows users, first, try to manipulate (rename, delete, etc.) the <code>msvcp140.dll</code>, <code>vcruntime140.dll</code> and <code>vcruntime140_1.dll</code> in the JDK's bin folder (<code>{JDK_PATH}/bin/</code>) so that these files do not exist in that folder. This step aims to remove the JDK's dependency on those libraries. Then, install the latest <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Microsoft Visual C++ Redistributable</a>.</div><p class="mt-8 text-gray-400 text-sm italic">For more detailed steps, please visit: <a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="text-orange-400 underline ml-1">Radiance Github Repo</a></p>`,
+        </div><p class="mt-8 text-gray-400 text-sm italic">For more detailed steps, please visit: <a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="text-orange-400 underline ml-1">Radiance Github Repo</a></p>`,
+        'changelog.v0_1_5.badge': 'ALPHA',
+        'changelog.v0_1_5.title': 'v0.1.5-alpha',
+        'changelog.v0_1_5.date': '2026-05-15',
+        'changelog.v0_1_5.item1': 'Supports individual shaderpacks: Features internal [Vanilla PT] and [Advanced] versions with basic path tracing, normal mapping, parallax, realistic water (caustics), ReSTIR (Advanced only), volumetric light/cloud, and motion blur',
+        'changelog.v0_1_5.item2': 'Added chunk emission collection for direct light sampling: See Advanced Shaderpack and manual for details',
+        'changelog.v0_1_5.item3': 'Enhanced chunk loading with multi-threading',
+        'changelog.v0_1_5.item4': 'Significantly enhanced texturepack reload speed (3x)',
+        'changelog.v0_1_5.item5': 'Significantly reduced RAM and VRAM usage',
+        'changelog.v0_1_5.item6': 'Significantly reduced pipeline recreation time',
+        'changelog.v0_1_5.item7': 'Fixed a lot of small bugs',
+        'changelog.v0_1_5.item8': 'Port for 1.21.1 and 1.20.1 is coming soon',
+        'changelog.v0_1_4.badge': 'ALPHA',
+        'changelog.v0_1_4.title': 'v0.1.4-alpha',
+        'changelog.v0_1_4.date': '2026-04-30',
+        'changelog.v0_1_4.item1': 'Pipeline settings rewrite: Add preset mode for simplified settings and default module position to avoid overlap',
+        'changelog.v0_1_4.item2': 'Simplified labPBR texture load (No pre-process is necessary)',
+        'changelog.v0_1_4.item3': 'Tone mapping enhanced: Add center mode (based on crosshair pixels) and global mode, more mapping methods and exposed settings',
+        'changelog.v0_1_4.item4': 'Integrated Nvidia SHaRC and XeSS SR (Windows only)',
+        'changelog.v0_1_4.item5': 'Ray Tracing module improved: Dynamic shader modification (experimental), optimized internal shaders, and split reflection/refraction paths',
+        'changelog.v0_1_4.item6': 'Rewrite NRD module: Following NRD sample, improved reflections with Reblur, exposed more settings',
+        'changelog.v0_1_4.item7': 'Add basic emission textures',
+        'changelog.v0_1_4.item8': 'Bug fixes: Pure black screen, wide character paths, DLSS mode settings, selection/hit box in tracing path, labPBR decode, hand rendering, Vulkan texture format, module shift, memory leakage, and biome textures',
+        'changelog.v0_1_4.item9': 'Removed hard dependency on DLSS (defaults to NRD if libs are absent)',
         'changelog.v0_1_1.badge': 'PRE-RELEASE',
         'changelog.v0_1_1.title': 'v0.1.1-preview',
         'changelog.v0_1_1.date': '2026-01-02',
