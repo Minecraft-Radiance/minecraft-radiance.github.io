@@ -32,7 +32,7 @@ async function renderChangelog(lang) {
     if (!container) return;
 
     try {
-        const response = await fetch('data/changelog.json');
+        const response = await fetch('./data/changelog.json');
         const data = await response.json();
         
         container.innerHTML = ''; // Clear existing
