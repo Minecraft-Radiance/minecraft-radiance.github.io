@@ -221,7 +221,7 @@ window.translations = {
         </div><p class="mt-8 text-gray-400 text-sm italic">For more detailed steps, please visit: <a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="text-orange-400 underline ml-1">Radiance Github Repo</a></p>`,
         'changelog.v0_1_5.badge': 'ALPHA',
         'changelog.v0_1_5.title': 'v0.1.5-alpha',
-        'changelog.v0_1_5.date': '2026-05-15',
+        'changelog.v0_1_5.date': '2026-04-30',
         'changelog.v0_1_5.item1': 'Supports individual shaderpacks: Features internal [Vanilla PT] and [Advanced] versions with basic path tracing, normal mapping, parallax, realistic water (caustics), ReSTIR (Advanced only), volumetric light/cloud, and motion blur',
         'changelog.v0_1_5.item2': 'Added chunk emission collection for direct light sampling: See Advanced Shaderpack and manual for details',
         'changelog.v0_1_5.item3': 'Enhanced chunk loading with multi-threading',
