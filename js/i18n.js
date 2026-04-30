@@ -51,6 +51,11 @@ function updateLanguage(lang) {
     if (langToggle) {
         langToggle.textContent = lang === 'zh' ? 'EN' : 'ZH';
     }
+
+    // Re-render dynamic components
+    if (typeof renderChangelog === 'function') {
+        renderChangelog(lang);
+    }
 }
 
 document.getElementById('lang-toggle')?.addEventListener('click', () => {

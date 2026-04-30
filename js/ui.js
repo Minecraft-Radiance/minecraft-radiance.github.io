@@ -26,6 +26,55 @@ document.getElementById('logo-home')?.addEventListener('click', () => {
     window.location.hash = 'home';
 });
 
+// Changelog Rendering
+async function renderChangelog(lang) {
+    const container = document.querySelector('#view-changelog .space-y-8');
+    if (!container) return;
+
+    try {
+        const response = await fetch('data/changelog.json');
+        const data = await response.json();
+        
+        container.innerHTML = ''; // Clear existing
+        
+        data.forEach(entry => {
+            const card = document.createElement('div');
+            card.className = 'glass p-8 relative border-l-4 border-orange-500';
+            
+            const badge = document.createElement('div');
+            badge.className = 'absolute top-4 right-4 bg-orange-900/50 text-yellow-400 px-3 py-1 text-[12px] border border-orange-500';
+            badge.textContent = entry.badge;
+            
+            const title = document.createElement('h2');
+            title.className = 'text-xl text-white mb-2';
+            title.textContent = entry.version;
+            
+            const date = document.createElement('div');
+            date.className = 'text-gray-500 text-[12px] mb-6';
+            date.textContent = entry.date;
+            
+            const list = document.createElement('ul');
+            list.className = 'list-disc list-inside space-y-2 text-sm text-gray-300 mb-6';
+            
+            const items = entry.items[lang] || entry.items['en'] || [];
+            items.forEach(itemText => {
+                const li = document.createElement('li');
+                li.innerHTML = itemText;
+                list.appendChild(li);
+            });
+            
+            card.appendChild(badge);
+            card.appendChild(title);
+            card.appendChild(date);
+            card.appendChild(list);
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading changelog:', error);
+        container.innerHTML = '<p class="text-gray-500 text-center">Failed to load changelog.</p>';
+    }
+}
+
 // Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');

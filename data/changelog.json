@@ -1,0 +1,136 @@
+[
+    {
+        "version": "v0.1.5-alpha",
+        "badge": "ALPHA",
+        "date": "2026-04-30",
+        "items": {
+            "zh": [
+                "支持独立着色器包 (Shaderpacks)：内置 [<a href=\"https://github.com/Minecraft-Radiance/Shaderpack-Vanilla-PT\" target=\"_blank\" class=\"underline hover:text-orange-400\">Vanilla PT</a>] 和 [<a href=\"https://github.com/Minecraft-Radiance/Shaderpack-Advanced\" target=\"_blank\" class=\"underline hover:text-orange-400\">Advanced</a>] 版本，支持基础路径追踪、法线贴图、视差映射、焦散水体、ReSTIR 直接光采样（仅限 Advanced）、体积光/云及动态模糊",
+                "新增用于直接光采样的区块发光收集：详情参阅 Advanced Shaderpack 及手册",
+                "多线程增强区块加载性能",
+                "材质包重载速度显著提升 (达 3 倍)",
+                "显著减少 RAM 与 VRAM 占用",
+                "大幅缩短管线重建时间",
+                "修复大量已知细节 Bug",
+                "即将支持 1.21.1 和 1.20.1 版本"
+            ],
+            "en": [
+                "Supports individual shaderpacks: Features internal [<a href=\"https://github.com/Minecraft-Radiance/Shaderpack-Vanilla-PT\" target=\"_blank\" class=\"underline hover:text-orange-400\">Vanilla PT</a>] and [<a href=\"https://github.com/Minecraft-Radiance/Shaderpack-Advanced\" target=\"_blank\" class=\"underline hover:text-orange-400\">Advanced</a>] versions with basic path tracing, normal mapping, parallax, realistic water (caustics), ReSTIR (Advanced only), volumetric light/cloud, and motion blur",
+                "Added chunk emission collection for direct light sampling: See Advanced Shaderpack and manual for details",
+                "Enhanced chunk loading with multi-threading",
+                "Significantly enhanced texturepack reload speed (3x)",
+                "Significantly reduced RAM and VRAM usage",
+                "Significantly reduced pipeline recreation time",
+                "Fixed a lot of small bugs",
+                "Port for 1.21.1 and 1.20.1 is coming soon"
+            ]
+        }
+    },
+    {
+        "version": "v0.1.4-alpha",
+        "badge": "ALPHA",
+        "date": "2026-03-21",
+        "items": {
+            "zh": [
+                "重写管线设置：新增预设模式以简化设置，并添加默认模块位置以避免模块重叠",
+                "简化 labPBR 纹理加载（无需预处理）",
+                "增强色调映射 (Tone Mapping)：添加中心模式（基于准星周围像素）和全局模式，增加更多映射方法并公开更多设置",
+                "集成 Nvidia <a href=\"https://github.com/NVIDIA-RTX/SHARC\" target=\"_blank\" class=\"underline hover:text-orange-400\">SHaRC</a> 和 <a href=\"https://github.com/intel/xess\" target=\"_blank\" class=\"underline hover:text-orange-400\">XeSS SR</a>（仅限 Windows）",
+                "改进光线追踪模块：公开部分 RT 着色器以供运行时修改（实验性），优化内部着色器以减少寄存器和 SM 使用，分离反射和折射路径",
+                "重写 NRD 模块：遵循 <a href=\"https://github.com/NVIDIA-RTX/NRD-Sample\" target=\"_blank\" class=\"underline hover:text-orange-400\">NRD 示例</a>，改进 Reblur 反射效果，公开几乎所有 ReBlur 设置",
+                "添加基础发光纹理支持",
+                "问题修复：修复特定时间纯黑、宽字符路径、DLSS 模式设置、追踪路径中的选择框/碰撞框、不正确的 labPBR 解码、手部渲染异常、Vulkan 纹理格式、模块偏移、内存泄漏以及草方块侧面生物群系纹理丢失等问题",
+                "移除对 DLSS 的硬性依赖（若缺少 DLSS 库将默认使用 NRD）"
+            ],
+            "en": [
+                "Pipeline settings rewrite: Add preset mode for simplified settings and default module position to avoid overlap",
+                "Simplified labPBR texture load (No pre-process is necessary)",
+                "Tone mapping enhanced: Add center mode (based on crosshair pixels) and global mode, more mapping methods and exposed settings",
+                "Integrated Nvidia <a href=\"https://github.com/NVIDIA-RTX/SHARC\" target=\"_blank\" class=\"underline hover:text-orange-400\">SHaRC</a> and <a href=\"https://github.com/intel/xess\" target=\"_blank\" class=\"underline hover:text-orange-400\">XeSS SR</a> (Windows only)",
+                "Ray Tracing module improved: Dynamic shader modification (experimental), optimized internal shaders, and split reflection/refraction paths",
+                "Rewrite NRD module: Following <a href=\"https://github.com/NVIDIA-RTX/NRD-Sample\" target=\"_blank\" class=\"underline hover:text-orange-400\">NRD sample</a>, improved reflections with Reblur, exposed more settings",
+                "Add basic emission textures",
+                "Bug fixes: Pure black screen, wide character paths, DLSS mode settings, selection/hit box in tracing path, labPBR decode, hand rendering, Vulkan texture format, module shift, memory leakage, and biome textures",
+                "Removed hard dependency on DLSS (defaults to NRD if libs are absent)"
+            ]
+        }
+    },
+    {
+        "version": "v0.1.3-alpha",
+        "badge": "ALPHA",
+        "date": "2026-02-09",
+        "items": {
+            "zh": [
+                "新增具有模块化渲染块的动态管线",
+                "解决 CPU 瓶颈问题（现在性能提升 1.5 倍）",
+                "修复 UI 显示问题",
+                "支持 PBR 材质包",
+                "更新至最新 DLSS 版本",
+                "增加实验性的 NRD 和 FSR3 支持 (全显卡厂商兼容)",
+                "修复发光粒子显示异常的 Bug",
+                "修复粒子穿墙（角落）的 Bug",
+                "修复旗帜和盾牌图案显示不正确的 Bug",
+                "修复船只渲染不正确的 Bug",
+                "修复末地传送门和折跃门显示为纯灰色的 Bug"
+            ],
+            "en": [
+                "Added dynamic pipeline with modularized render blocks",
+                "Solved CPU bottleneck issue (1.5x performance gain now)",
+                "UI issues solved",
+                "PBR texture packs supported",
+                "Updated to the latest DLSS version",
+                "Added experimental NRD and FSR3 support (Cross-Vendor compatible)",
+                "Fixed the bug where glowing particles appear problematic",
+                "Fixed the bug where the particles get through at the corners",
+                "Fixed the bug where the banner and shield patterns are not displayed correctly",
+                "Fixed the bug where the boats are not rendered correctly",
+                "Fixed the bug where the end portal and gateway are pure gray"
+            ]
+        }
+    },
+    {
+        "version": "v0.1.2-preview",
+        "badge": "PRE-RELEASE",
+        "date": "2026-01-05",
+        "items": {
+            "zh": [
+                "新增截图功能",
+                "调整曝光算法，提高对高亮区域的灵敏度，减少过度曝光"
+            ],
+            "en": [
+                "Screenshot functionality is now available",
+                "Tuned the exposure algorithm for better sensitivity to bright areas, leading to less over-exposure"
+            ]
+        }
+    },
+    {
+        "version": "v0.1.1-preview",
+        "badge": "PRE-RELEASE",
+        "date": "2026-01-02",
+        "items": {
+            "zh": [
+                "修复了移动时的画面回闪问题"
+            ],
+            "en": [
+                "Fixed the issue of frame flashback when moving"
+            ]
+        }
+    },
+    {
+        "version": "v0.1.0-preview",
+        "badge": "PRE-RELEASE",
+        "date": "2025-12-29",
+        "items": {
+            "zh": [
+                "首个公开预览版，开启次世代光影体验",
+                "完整的 Vulkan 渲染后端实现",
+                "基础 hardware 光线追踪管线与路径追踪支持,加入 DLSS 4.5 支持"
+            ],
+            "en": [
+                "First public preview version",
+                "Full Vulkan rendering backend implementation",
+                "Basic hardware Ray Tracing, and path tracing support. Features DLSS 4.5."
+            ]
+        }
+    }
+]
