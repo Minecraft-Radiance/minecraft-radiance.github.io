@@ -19,19 +19,59 @@
     <meta property="twitter:title" content="Radiance - Minecraft Ray Tracing Mod">
     <meta property="twitter:description" content="Radiance - Next-Gen Minecraft Path Tracing engine mod. Rebuilt on Vulkan C++ backend, featuring native Hardware Ray Tracing support.">
     <meta property="twitter:image" content="resources/logo-radiance.webp">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
     <!-- Preload critical font -->
     <link rel="preload" href="fonts/fusion-pixel/fusion-pixel-10px-monospaced-latin.ttf.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- DNS preconnect for third-party CDNs (reduces CLS from late-loaded resources) -->
+    <link rel="canonical" href="https://www.minecraft-radiance.com/">
+
+    <!-- DNS preconnect for third-party CDNs -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://image.puxuan.cc">
     <link rel="preconnect" href="https://image.puxuan.cc">
+
+    <!-- Critical inline styles (layout before Tailwind CDN loads asynchronously) -->
+    <style>
+        body{background:#050505;color:#fff;font-family:'Fusion Pixel',sans-serif;overflow-x:hidden;line-height:2;font-size:14px}
+        #video-background{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+        #video-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+        #navbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem}
+        #app-container{padding-top:5rem;min-height:100vh}
+        .page-view{display:none}.page-view.active{display:block}
+        .fixed{position:fixed}.hidden{display:none}.flex{display:flex}.flex-col{flex-direction:column}
+        .items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+        .w-full{width:100%}.h-full{height:100%}.object-cover{object-fit:cover}
+        .grid{display:grid}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.gap-10{gap:2.5rem}
+        .px-6{padding-left:1.5rem;padding-right:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.p-8{padding:2rem}
+        .space-x-3>*+*{margin-left:.75rem}.space-x-4>*+*{margin-left:1rem}.space-x-8>*+*{margin-left:2rem}
+        .space-y-6>*+*{margin-top:1.5rem}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}
+        .mx-auto{margin-left:auto;margin-right:auto}.max-w-5xl{max-width:64rem}.max-w-4xl{max-width:56rem}.max-w-7xl{max-width:80rem}
+        .relative{position:relative}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.text-center{text-align:center}
+        .inset-0{top:0;right:0;bottom:0;left:0}.min-h-\[80vh\]{min-height:80vh}.min-h-\[300px\]{min-height:300px}
+        .min-h-screen{min-height:100vh}.border-b{border-bottom-width:1px}.border-t-4{border-top-width:4px}
+        .aspect-video{aspect-ratio:16/9}.pointer-events-none{pointer-events:none}.uppercase{text-transform:uppercase}
+        .cursor-pointer{cursor:pointer}.overflow-hidden{overflow:hidden}
+        .translate-x-full{transform:translateX(100%)}
+        .bg-black\/80{background:rgba(0,0,0,.8)}.bg-black\/95{background:rgba(0,0,0,.95)}.bg-black\/50{background:rgba(0,0,0,.5)}
+        .w-10{width:2.5rem}.h-10{height:2.5rem}
+        .px-8{padding-left:2rem;padding-right:2rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+        .px-3{padding-left:.75rem;padding-right:.75rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}
+        .space-y-8>*+*{margin-top:2rem}.mb-6{margin-bottom:1.5rem}
+        .text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-lg{font-size:1.125rem}
+        .text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-5xl{font-size:3rem;line-height:1.25}
+        .font-bold{font-weight:700}.tracking-wide{letter-spacing:.025em}
+        .sm\:inline{display:inline}
+        @media(min-width:640px){
+            .sm\:text-base{font-size:1rem}
+        }
+        @media(min-width:768px){
+            .md\:flex{display:flex}.md\:hidden{display:none}.md\:flex-row{flex-direction:row}
+            .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:-mt-32{margin-top:-8rem}
+            .md\:space-y-0>*+*{margin-top:0}.md\:space-x-6>*+*{margin-left:1.5rem}
+        }
+    </style>
 
     <!-- 引入外部样式表 (包含字体定义和 Firefox 优化) -->
     <link rel="stylesheet" href="css/style.css">
@@ -137,7 +177,7 @@
         <!-- ==================== 光影展示视图 (Gallery) ==================== -->
         <div id="view-gallery" class="page-view max-w-7xl mx-auto px-6 py-12">
             <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-7xl text-white mb-6" data-i18n="gallery.title"></h1>
+                <h2 class="text-4xl md:text-7xl text-white mb-6" data-i18n="gallery.title"></h2>
                 <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto" data-i18n="gallery.subtitle"></p>
             </div>
 
@@ -200,7 +240,7 @@
         <!-- ==================== 特性详情视图 (Features) ==================== -->
         <div id="view-features" class="page-view max-w-7xl mx-auto px-6 py-12">
 <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-7xl text-white mb-6" data-i18n="features_page.title"></h1>
+                <h2 class="text-4xl md:text-7xl text-white mb-6" data-i18n="features_page.title"></h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed" data-i18n="features_page.subtitle"></p>
             </div>
 
@@ -304,7 +344,7 @@
 <!-- ==================== 文档视图 (Docs) ==================== -->
         <div id="view-docs" class="page-view max-w-4xl mx-auto px-6 py-12">
             <div class="glass p-10 markdown">
-                <h1 class="text-3xl md:text-5xl text-white mb-8 border-b border-white/10 pb-4" data-i18n="docs.install.main_title"></h1>
+                <h2 class="text-3xl md:text-5xl text-white mb-8 border-b border-white/10 pb-4" data-i18n="docs.install.main_title"></h2>
                 
                 <h3 data-i18n="docs.install.req_title"></h3>
                 <p data-i18n="docs.install.req_list" />
@@ -316,7 +356,7 @@
 
         <!-- ==================== 更新日志视图 (Changelog) ==================== -->
         <div id="view-changelog" class="page-view max-w-4xl mx-auto px-6 py-12">
-            <h1 class="text-2xl md:text-3xl text-white mb-10 text-center" data-i18n="changelog.main_title"></h1>
+            <h2 class="text-2xl md:text-3xl text-white mb-10 text-center" data-i18n="changelog.main_title"></h2>
             
             <div class="space-y-8">
                 <!-- v0.1.5 -->
@@ -489,6 +529,10 @@
         </div>
     </footer>
 
+    <!-- Deferred: Tailwind CDN generates CSS after parse, non-blocking -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="js/translations.js"></script>
     <script src="js/config.js"></script>
     <script src="js/i18n.js"></script>

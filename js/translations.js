@@ -81,7 +81,7 @@ window.translations = {
         'changelog.v0_1_5.badge': 'ALPHA',
         'changelog.v0_1_5.title': 'v0.1.5-alpha',
         'changelog.v0_1_5.date': '2026-04-30',
-        'changelog.v0_1_5.item1': '支持独立着色器包 (Shaderpacks)：内置 [Vanilla PT] 和 [Advanced] 版本，支持基础路径追踪、法线贴图、视差映射、焦散水体、ReSTIR 直接光采样（仅限 Advanced）、体积光/云及动态模糊',
+        'changelog.v0_1_5.item1': '支持独立着色器包 (Shaderpacks)：内置 [<a href="https://github.com/Minecraft-Radiance/Shaderpack-Vanilla-PT" target="_blank" class="underline hover:text-orange-400">Vanilla PT</a>] 和 [<a href="https://github.com/Minecraft-Radiance/Shaderpack-Advanced" target="_blank" class="underline hover:text-orange-400">Advanced</a>] 版本，支持基础路径追踪、法线贴图、视差映射、焦散水体、ReSTIR 直接光采样（仅限 Advanced）、体积光/云及动态模糊',
         'changelog.v0_1_5.item2': '新增用于直接光采样的区块发光收集：详情参阅 Advanced Shaderpack 及手册',
         'changelog.v0_1_5.item3': '多线程增强区块加载性能',
         'changelog.v0_1_5.item4': '材质包重载速度显著提升 (达 3 倍)',
