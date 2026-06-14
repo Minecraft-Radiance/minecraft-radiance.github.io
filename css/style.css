@@ -216,7 +216,12 @@
             will-change: transform, opacity;
         }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Reserve space for Lucide icons before JS injection (prevents CLS) */
+[data-lucide] {
+    display: inline-block;
+}

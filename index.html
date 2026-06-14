@@ -25,6 +25,14 @@
     <!-- Preload critical font -->
     <link rel="preload" href="fonts/fusion-pixel/fusion-pixel-10px-monospaced-latin.ttf.woff2" as="font" type="font/woff2" crossorigin>
 
+    <!-- DNS preconnect for third-party CDNs (reduces CLS from late-loaded resources) -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://image.puxuan.cc">
+    <link rel="preconnect" href="https://image.puxuan.cc">
+
     <!-- 引入外部样式表 (包含字体定义和 Firefox 优化) -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -42,19 +50,19 @@
     <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 border-b border-transparent bg-[#0a0a0a]/80 backdrop-blur-md" id="navbar">
         <div class="flex items-center space-x-3 cursor-pointer" id="logo-home">
             <div class="w-10 h-10 rounded-none flex items-center justify-center border-2 border-white/50 shadow-[2px_2px_0px_rgba(255,255,255,0.3)] bg-black">
-                <img src="resources/logo-radiance.webp" alt="Radiance Logo" class="w-full h-full object-cover js-logo-img">
+                <img src="resources/logo-radiance.webp" alt="Radiance Logo" width="40" height="40" class="w-full h-full object-cover js-logo-img">
             </div>
             <span class="text-white text-base md:text-lg tracking-widest hidden sm:inline">RADIANCE</span>
         </div>
         
         <!-- 导航链接：注意 href 变成了 hash 地址 -->
         <div class="hidden md:flex space-x-8 text-base text-gray-300">
-            <a href="#home" class="hover:text-orange-400 transition-colors nav-link active" data-page="home" data-i18n="nav.home"></a>
-            <a href="#features" class="hover:text-orange-400 transition-colors nav-link" data-page="features" data-i18n="nav.features"></a>
-            <a href="#gallery" class="hover:text-orange-400 transition-colors nav-link" data-page="gallery" data-i18n="nav.gallery"></a>
-            <a href="#docs" class="hover:text-orange-400 transition-colors nav-link" data-page="docs" data-i18n="nav.docs"></a>
-            <a href="#changelog" class="hover:text-orange-400 transition-colors nav-link" data-page="changelog" data-i18n="nav.changelog"></a>
-            <a href="#download" class="hover:text-orange-400 transition-colors nav-link" data-page="download" data-i18n="nav.download"></a>
+            <a href="#home" class="hover:text-orange-400 transition-colors nav-link active" data-page="home" data-i18n="nav.home">Home</a>
+            <a href="#features" class="hover:text-orange-400 transition-colors nav-link" data-page="features" data-i18n="nav.features">Features</a>
+            <a href="#gallery" class="hover:text-orange-400 transition-colors nav-link" data-page="gallery" data-i18n="nav.gallery">Gallery</a>
+            <a href="#docs" class="hover:text-orange-400 transition-colors nav-link" data-page="docs" data-i18n="nav.docs">Wiki</a>
+            <a href="#changelog" class="hover:text-orange-400 transition-colors nav-link" data-page="changelog" data-i18n="nav.changelog">Changelog</a>
+            <a href="#download" class="hover:text-orange-400 transition-colors nav-link" data-page="download" data-i18n="nav.download">Download</a>
         </div>
 
         <div class="flex items-center space-x-4">
@@ -73,12 +81,12 @@
         <button id="mobile-menu-close" class="absolute top-6 right-6 text-white">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
-        <a href="#home" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.home"></a>
-        <a href="#features" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.features"></a>
-        <a href="#gallery" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.gallery"></a>
-        <a href="#docs" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.docs"></a>
-        <a href="#changelog" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.changelog"></a>
-        <a href="#download" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.download"></a>
+        <a href="#home" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.home">Home</a>
+        <a href="#features" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.features">Features</a>
+        <a href="#gallery" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.gallery">Gallery</a>
+        <a href="#docs" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.docs">Wiki</a>
+        <a href="#changelog" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.changelog">Changelog</a>
+        <a href="#download" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.download">Download</a>
     </div>
 
     <!-- 页面容器 -->
@@ -89,15 +97,14 @@
             <!-- 英雄区 -->
 <section class="relative min-h-[80vh] flex flex-col justify-center items-center px-6">
                 <div class="text-center max-w-5xl z-10">
-                    <div class="text-orange-500 text-sm md:text-xl mb-8 animate-pulse tracking-[0.3em] font-bold" data-i18n="hero.subtitle"></div>
-                    <h1 class="text-5xl md:text-8xl mb-10 hero-text gradient-text leading-tight" data-i18n="hero.title"></h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed" data-i18n="hero.desc"></p>
+                    <div class="text-orange-500 text-sm md:text-xl mb-8 animate-pulse tracking-[0.3em] font-bold" data-i18n="hero.subtitle">VULKAN C++ POWERED RENDERING</div>
+                    <h1 class="text-5xl md:text-8xl mb-10 hero-text gradient-text leading-tight" data-i18n="hero.title">Next-Gen Minecraft Path Tracing Engine</h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed" data-i18n="hero.desc">Break free from OpenGL limits. Radiance is rebuilt on a Vulkan C++ backend, featuring native hardware Ray Tracing on Windows &amp; Linux. Unleash your GPU's full potential.</p>
                     <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 justify-center">
                         <a href="#download" class="btn-primary px-8 py-5 text-sm sm:text-base flex items-center justify-center font-bold tracking-wide">
-                            <i data-lucide="zap" class="mr-3 w-5 h-5"></i> <span data-i18n="hero.btn_download"></span>
+                            <i data-lucide="zap" class="mr-3 w-5 h-5"></i> <span data-i18n="hero.btn_download">Download Alpha Version</span>
                         </a>
-                        <a href="#gallery" class="btn-glass px-8 py-5 text-sm sm:text-base flex items-center justify-center font-bold tracking-wide" data-i18n="hero.btn_gallery">
-                        </a>
+                        <a href="#gallery" class="btn-glass px-8 py-5 text-sm sm:text-base flex items-center justify-center font-bold tracking-wide" data-i18n="hero.btn_gallery">View Gallery</a>
                     </div>
                 </div>
             </section>
@@ -105,23 +112,23 @@
             <!-- 特性展示 -->
             <section class="py-12 px-6 max-w-7xl mx-auto relative z-10 md:-mt-32">
                 <div class="text-center mb-20">
-                    <h2 class="text-2xl md:text-3xl mb-6 text-white" data-i18n="features.title"></h2>
+                    <h2 class="text-2xl md:text-3xl mb-6 text-white" data-i18n="features.title">Core Innovations</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div class="glass p-8 hover:translate-y-[-4px] transition-all">
                         <i data-lucide="triangle" class="w-12 h-12 mb-6 text-orange-500"></i>
-                        <h3 class="text-xl mb-6 text-orange-400 font-bold" data-i18n="features.card1.title"></h3>
-                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card1.desc"></p>
+                        <h3 class="text-xl mb-6 text-orange-400 font-bold" data-i18n="features.card1.title">Vulkan Core Overhaul</h3>
+                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card1.desc">Complete OpenGL Bypass. Replaces the pipeline with a highly concurrent Vulkan backend for true multi-core performance.</p>
                     </div>
                     <div class="glass p-8 hover:translate-y-[-4px] transition-all">
                         <i data-lucide="sun" class="w-12 h-12 mb-6 text-yellow-400"></i>
-                        <h3 class="text-xl mb-6 text-yellow-300 font-bold" data-i18n="features.card2.title"></h3>
-                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card2.desc"></p>
+                        <h3 class="text-xl mb-6 text-yellow-300 font-bold" data-i18n="features.card2.title">hardware Ray Tracing</h3>
+                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card2.desc">Powered by Vulkan Ray Tracing Pipeline (KHR). Directly harnesses RT Core hardware acceleration, vastly outperforming software emulation.</p>
                     </div>
                     <div class="glass p-8 hover:translate-y-[-4px] transition-all">
                         <i data-lucide="trending-up" class="w-12 h-12 mb-6 text-amber-400"></i>
-                        <h3 class="text-xl mb-6 text-amber-300 font-bold" data-i18n="features.card3.title"></h3>
-                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card3.desc"></p>
+                        <h3 class="text-xl mb-6 text-amber-300 font-bold" data-i18n="features.card3.title">Cross-Platform Performance</h3>
+                        <p class="text-gray-200 text-base leading-relaxed" data-i18n="features.card3.desc">Full support for Windows &amp; Linux. The Vulkan pipeline delivers vastly superior performance over legacy shaders, making ray tracing playable, not a slideshow.</p>
                     </div>
                 </div>
             </section>
@@ -200,7 +207,7 @@
             <!-- Feature Block 1: Ray Tracing -->
             <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
                 <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
-                    <img id="img-feature-rt" src="" alt="Ray Tracing" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                    <img id="img-feature-rt" src="https://image.puxuan.cc/PicGo/woods.png" alt="Ray Tracing" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/orange?text=RTX+Preview'; this.onerror=null;">
                     <div class="text-center p-10 hidden w-full h-full flex flex-col justify-center items-center absolute inset-0">
                          <!-- Fallback Icon if image missing -->
@@ -221,7 +228,7 @@
             <!-- Feature Block 2: Interaction -->
             <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
                 <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
-                    <img id="img-feature-interact" src="" alt="Dynamic Interaction" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                    <img id="img-feature-interact" src="https://image.puxuan.cc/PicGo/gloom.png" alt="Dynamic Interaction" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/3b82f6?text=Interaction'; this.onerror=null;">
                     <div class="text-center p-10 hidden w-full h-full flex flex-col justify-center items-center absolute inset-0">
                         <i data-lucide="hand" class="w-16 h-16 text-blue-500 mb-4"></i>
@@ -241,7 +248,7 @@
             <!-- Feature Block 3: Upscaling -->
             <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
                 <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
-                    <img id="img-feature-upscale" src="" alt="Deep Learning Upscaling" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                    <img id="img-feature-upscale" src="https://image.puxuan.cc/PicGo/underground.png" alt="Deep Learning Upscaling" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/eab308?text=DLSS+Upscaling'; this.onerror=null;">
                      <div class="text-center p-10 hidden w-full h-full flex flex-col justify-center items-center absolute inset-0">
                         <i data-lucide="zap" class="w-16 h-16 text-yellow-500 mb-4"></i>
@@ -265,7 +272,7 @@
             <!-- Feature Block 4: PBR Materials -->
             <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
                 <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
-                    <img id="img-feature-pbr" src="https://image.puxuan.cc/PicGo/2026-02-09_00.45.30.png" alt="PBR Materials" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                    <img id="img-feature-pbr" src="https://image.puxuan.cc/PicGo/2026-02-09_00.45.30.png" alt="PBR Materials" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/orange?text=PBR+Preview'; this.onerror=null;">
                 </div>
                 <div class="w-full md:w-1/2 glass p-8 rounded-xl bg-black/40">
@@ -281,7 +288,7 @@
             <!-- Feature Block 5: Dynamic Pipeline -->
             <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
                 <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
-                    <img id="img-feature-pipeline" src="https://image.puxuan.cc/PicGo/pipeline.png" alt="Dynamic Pipeline" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                    <img id="img-feature-pipeline" src="https://image.puxuan.cc/PicGo/pipeline.png" alt="Dynamic Pipeline" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/orange?text=Pipeline+Preview'; this.onerror=null;">
                 </div>
                 <div class="w-full md:w-1/2 glass p-8 rounded-xl bg-black/40">
@@ -470,11 +477,11 @@
     <footer class="py-12 border-t-4 border-white/10 px-6 bg-black/80 relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-500 text-lg">
             <div class="flex flex-col mb-4 md:mb-0">
-                <p data-i18n="footer.copyright"></p>
-                <p class="text-sm mt-2 opacity-50" data-i18n="footer.credits"></p>
+                <p data-i18n="footer.copyright">Radiance. Unofficial Minecraft Mod Project.</p>
+                <p class="text-sm mt-2 opacity-50" data-i18n="footer.credits">Features Vulkan, DLSS and FSR technology. All trademarks are property of their respective owners.</p>
             </div>
             <div class="flex space-x-8">
-                <a href="https://buymeacoffee.com/radiance.mod" target="_blank" class="hover:text-orange-400" data-i18n="footer.sponsor"></a>
+                <a href="https://buymeacoffee.com/radiance.mod" target="_blank" class="hover:text-orange-400" data-i18n="footer.sponsor">Sponsor</a>
                 <a href="#docs" class="hover:text-orange-400">Wiki</a>
                 <a href="https://github.com/Minecraft-Radiance/Radiance" target="_blank" class="hover:text-orange-400">GitHub</a>
                 <a href="https://discord.gg/y4Uzf6acqk" target="_blank" class="hover:text-orange-400">Discord</a>
