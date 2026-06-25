@@ -232,7 +232,7 @@ window.translations = {
         'changelog.v0_1_5.item8': 'Port for 1.21.1 and 1.20.1 is coming soon',
         'changelog.v0_1_4.badge': 'ALPHA',
         'changelog.v0_1_4.title': 'v0.1.4-alpha',
-        'changelog.v0_1_4.date': '2026-03-21',
+        'changelog.v0_1_4.date': '2026-04-30',
         'changelog.v0_1_4.item1': 'Pipeline settings rewrite: Add preset mode for simplified settings and default module position to avoid overlap',
         'changelog.v0_1_4.item2': 'Simplified labPBR texture load (No pre-process is necessary)',
         'changelog.v0_1_4.item3': 'Tone mapping enhanced: Add center mode (based on crosshair pixels) and global mode, more mapping methods and exposed settings',
