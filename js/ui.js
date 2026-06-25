@@ -1,5 +1,5 @@
 // Lucide icons
-lucide.createIcons();
+window.lucide?.createIcons?.();
 
 // Mobile Menu
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -21,10 +21,52 @@ mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
 mobileMenuClose?.addEventListener('click', toggleMobileMenu);
 mobileNavLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
 
-// Logo Click Handler
-document.getElementById('logo-home')?.addEventListener('click', () => {
-    window.location.hash = 'home';
-});
+// Third-party video embeds
+function loadVideoEmbed(container) {
+    if (!container || container.dataset.videoLoaded === 'true') return;
+
+    const src = container.dataset.videoSrc;
+    if (!src) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'w-full h-full';
+    iframe.src = src;
+    iframe.title = container.dataset.videoTitle || 'Embedded video player';
+    iframe.loading = 'lazy';
+    iframe.allowFullscreen = true;
+
+    const allow = container.dataset.videoAllow;
+    if (allow) iframe.setAttribute('allow', allow);
+
+    const referrerPolicy = container.dataset.videoReferrerpolicy;
+    if (referrerPolicy) iframe.setAttribute('referrerpolicy', referrerPolicy);
+
+    if (container.dataset.videoProvider === 'bilibili') {
+        iframe.setAttribute('scrolling', 'no');
+        iframe.setAttribute('border', '0');
+        iframe.setAttribute('frameborder', 'no');
+        iframe.setAttribute('framespacing', '0');
+    } else {
+        iframe.setAttribute('frameborder', '0');
+    }
+
+    container.replaceChildren(iframe);
+    container.dataset.videoLoaded = 'true';
+}
+
+function unloadHiddenVideoEmbeds() {
+    document.querySelectorAll('.video-embed.hidden[data-video-loaded="true"]').forEach(container => {
+        container.replaceChildren();
+        delete container.dataset.videoLoaded;
+    });
+}
+
+function syncLanguageVideoEmbeds() {
+    unloadHiddenVideoEmbeds();
+    document.querySelectorAll('.video-embed:not(.hidden)').forEach(loadVideoEmbed);
+}
+
+window.syncLanguageVideoEmbeds = syncLanguageVideoEmbeds;
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');

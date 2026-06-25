@@ -1,5 +1,24 @@
 function router() {
-    let hash = window.location.hash.substring(1) || 'home';
+    const rawHash = window.location.hash.substring(1);
+    let hash = rawHash || 'home';
+    const legacyPageMap = {
+        features: 'features.html',
+        gallery: 'gallery.html',
+        docs: 'docs.html',
+        doc: 'docs.html',
+        changelog: 'changelog.html',
+        download: 'download.html'
+    };
+
+    if (legacyPageMap[hash]) {
+        window.location.replace(legacyPageMap[hash]);
+        return;
+    }
+
+    if (rawHash === 'home') {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
     const views = document.querySelectorAll('.page-view');
     const navLinks = document.querySelectorAll('.nav-link');
     

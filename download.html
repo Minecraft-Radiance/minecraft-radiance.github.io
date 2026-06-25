@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Download - Minecraft Ray Tracing Mod</title>
+    <link rel="icon" href="resources/logo-radiance.webp" type="image/webp">
+    <meta name="description" content="Download Radiance alpha builds for Minecraft path tracing on Windows and Linux.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.minecraft-radiance.com/download.html">
+    <meta property="og:title" content="Radiance Download - Minecraft Ray Tracing Mod">
+    <meta property="og:description" content="Download Radiance alpha builds for Minecraft path tracing on Windows and Linux.">
+    <meta property="og:image" content="https://www.minecraft-radiance.com/resources/logo-radiance.webp">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.minecraft-radiance.com/download.html">
+    <meta property="twitter:title" content="Radiance Download - Minecraft Ray Tracing Mod">
+    <meta property="twitter:description" content="Download Radiance alpha builds for Minecraft path tracing on Windows and Linux.">
+    <meta property="twitter:image" content="https://www.minecraft-radiance.com/resources/logo-radiance.webp">
+    <link rel="canonical" href="https://www.minecraft-radiance.com/download.html">
+    <link rel="preload" href="fonts/fusion-pixel/fusion-pixel-10px-monospaced-latin.ttf.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://image.puxuan.cc">
+    <link rel="preconnect" href="https://image.puxuan.cc">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <video loop muted playsinline id="video-background" class="transition-opacity duration-1000 opacity-30">
+        Your web browser does not support / 您的浏览器不支持 HTML5 视频。
+    </video>
+    <div id="video-overlay"></div>
+
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 border-b border-transparent bg-[#0a0a0a]/80 backdrop-blur-md" id="navbar">
+        <a href="index.html" class="flex items-center space-x-3 cursor-pointer">
+            <div class="w-10 h-10 rounded-none flex items-center justify-center border-2 border-white/50 shadow-[2px_2px_0px_rgba(255,255,255,0.3)] bg-black">
+                <img src="resources/logo-radiance.webp" alt="Radiance Logo" width="40" height="40" class="w-full h-full object-cover js-logo-img">
+            </div>
+            <span class="text-white text-base md:text-lg tracking-widest hidden sm:inline">RADIANCE</span>
+        </a>
+        <div class="hidden md:flex space-x-8 text-base text-gray-300">
+            <a href="index.html" class="hover:text-orange-400 transition-colors" data-i18n="nav.home">Home</a>
+            <a href="features.html" class="hover:text-orange-400 transition-colors" data-i18n="nav.features">Features</a>
+            <a href="gallery.html" class="hover:text-orange-400 transition-colors" data-i18n="nav.gallery">Gallery</a>
+            <a href="docs.html" class="hover:text-orange-400 transition-colors" data-i18n="nav.docs">Wiki</a>
+            <a href="changelog.html" class="hover:text-orange-400 transition-colors" data-i18n="nav.changelog">Changelog</a>
+            <a href="download.html" class="text-orange-400 transition-colors" data-i18n="nav.download">Download</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button id="lang-toggle" class="text-sm px-3 py-2 border border-white/30 hover:bg-white/10 transition-all uppercase">EN</button>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 translate-x-full md:hidden">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-white"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <a href="index.html" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.home">Home</a>
+        <a href="features.html" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.features">Features</a>
+        <a href="gallery.html" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.gallery">Gallery</a>
+        <a href="docs.html" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.docs">Wiki</a>
+        <a href="changelog.html" class="text-2xl text-gray-300 hover:text-orange-400 mobile-nav-link" data-i18n="nav.changelog">Changelog</a>
+        <a href="download.html" class="text-2xl text-orange-400 mobile-nav-link" data-i18n="nav.download">Download</a>
+    </div>
+
+    <main id="app-container" class="pt-20 min-h-screen">
+        <div id="view-download" class="max-w-3xl mx-auto px-6 py-12 text-center">
+            <div class="glass p-12">
+                <i data-lucide="download-cloud" class="w-16 h-16 mx-auto text-orange-400 mb-6"></i>
+                <h2 class="text-2xl text-white mb-8" data-i18n="download.title"></h2>
+
+                <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
+                    <a href="https://www.curseforge.com/minecraft/mc-mods/radiance" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
+                        <span class="text-base mb-2 font-bold" data-i18n="download.curseforge.title"></span>
+                        <span class="text-sm text-gray-700 font-medium group-hover:text-black" data-i18n="download.windows_only.meta"></span>
+                    </a>
+
+                    <a href="https://modrinth.com/mod/radiance-mod-windows" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
+                        <span class="text-base mb-2 font-bold" data-i18n="download.modrinth_windows.title"></span>
+                        <span class="text-sm text-gray-700 font-medium group-hover:text-black" data-i18n="download.windows_only.meta"></span>
+                    </a>
+
+                    <a href="https://modrinth.com/mod/radiance-mod-linux" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
+                        <span class="text-base mb-2 font-bold" data-i18n="download.modrinth_linux.title"></span>
+                        <span class="text-sm text-gray-700 font-medium group-hover:text-black" data-i18n="download.linux_only.meta"></span>
+                    </a>
+
+                    <a href="https://github.com/Minecraft-Radiance/Radiance/releases/tag/v0.1.5-alpha" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
+                        <span class="text-base mb-2 font-bold" data-i18n="download.github.title"></span>
+                        <span class="text-sm text-gray-700 font-medium group-hover:text-black" data-i18n="download.preview.meta"></span>
+                    </a>
+
+                    <a href="docs.html" class="btn-glass py-6 flex items-center justify-center font-bold tracking-wide uppercase hover:bg-white/10 transition-colors" data-i18n="download.btn_docs"></a>
+
+                    <a href="https://buymeacoffee.com/radiance.mod" target="_blank" rel="noopener noreferrer" class="btn-glass py-6 flex items-center justify-center font-bold tracking-wide uppercase border-yellow-500/50 text-yellow-500 hover:bg-yellow-500/10 transition-colors">
+                        <i data-lucide="coffee" class="mr-3 w-6 h-6"></i> <span data-i18n="download.buymeacoffee"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="lightbox" class="hidden fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md justify-center items-center p-8 transition-opacity duration-300 opacity-0">
+        <img id="lightbox-img" src="" alt="Enlarged View" class="hidden max-w-full max-h-full object-contain shadow-2xl border border-white/10">
+        <video id="lightbox-video" controls controlsList="nodownload" oncontextmenu="return false;" class="hidden max-w-full max-h-full shadow-2xl border border-white/10 focus:outline-none transition-transform duration-300">
+            Your browser does not support the video tag.
+        </video>
+        <button id="lightbox-rotate-btn" class="hidden md:hidden absolute bottom-8 left-8 text-white/70 hover:text-white bg-black/50 p-3 rounded-full backdrop-blur-sm border border-white/10 z-50">
+            <i data-lucide="rotate-cw" class="w-6 h-6"></i>
+        </button>
+        <button class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+    </div>
+
+    <div id="site-footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

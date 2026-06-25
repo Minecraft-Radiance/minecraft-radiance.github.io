@@ -1,5 +1,24 @@
-let userLang = navigator.language || navigator.userLanguage; 
-let currentLang = userLang.startsWith('zh') ? 'zh' : 'en';
+const LANGUAGE_STORAGE_KEY = 'radiance-language';
+
+function getStoredLanguage() {
+    try {
+        const lang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        return lang === 'zh' || lang === 'en' ? lang : null;
+    } catch (_error) {
+        return null;
+    }
+}
+
+function storeLanguage(lang) {
+    try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    } catch (_error) {
+        // Storage can be disabled in private browsing or strict privacy modes.
+    }
+}
+
+let userLang = navigator.language || navigator.userLanguage;
+let currentLang = getStoredLanguage() || (userLang.startsWith('zh') ? 'zh' : 'en');
 
 function updateLanguage(lang) {
     currentLang = lang;
@@ -33,17 +52,26 @@ function updateLanguage(lang) {
         if (v1Zh) v1Zh.classList.add('hidden');
     }
 
-    if (window.translations[lang]) {
+    const shouldUpdateSiteMeta = document.body?.dataset.updateSiteMeta === 'true';
+    if (shouldUpdateSiteMeta && window.translations[lang]) {
         if (window.translations[lang]['site.title']) {
             document.title = window.translations[lang]['site.title'];
         }
         if (window.translations[lang]['site.desc']) {
+            const title = window.translations[lang]['site.title'];
             const desc = window.translations[lang]['site.desc'];
-            document.querySelector('meta[name="description"]').setAttribute('content', desc);
-            document.querySelector('meta[property="og:title"]').setAttribute('content', window.translations[lang]['site.title']);
-            document.querySelector('meta[property="og:description"]').setAttribute('content', desc);
-            document.querySelector('meta[property="twitter:title"]').setAttribute('content', window.translations[lang]['site.title']);
-            document.querySelector('meta[property="twitter:description"]').setAttribute('content', desc);
+            const metaUpdates = [
+                ['meta[name="description"]', desc],
+                ['meta[property="og:title"]', title],
+                ['meta[property="og:description"]', desc],
+                ['meta[property="twitter:title"]', title],
+                ['meta[property="twitter:description"]', desc]
+            ];
+
+            metaUpdates.forEach(([selector, value]) => {
+                const element = document.querySelector(selector);
+                if (element && value) element.setAttribute('content', value);
+            });
         }
     }
 
@@ -51,8 +79,12 @@ function updateLanguage(lang) {
     if (langToggle) {
         langToggle.textContent = lang === 'zh' ? 'EN' : 'ZH';
     }
+
+    window.syncLanguageVideoEmbeds?.();
 }
 
 document.getElementById('lang-toggle')?.addEventListener('click', () => {
-    updateLanguage(currentLang === 'zh' ? 'en' : 'zh');
+    const nextLang = currentLang === 'zh' ? 'en' : 'zh';
+    storeLanguage(nextLang);
+    updateLanguage(nextLang);
 });
