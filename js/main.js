@@ -1,5 +1,5 @@
 // Main entry point
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Config-based UI
     if (typeof SITE_CONFIG !== 'undefined') {
         document.querySelectorAll('.js-logo-img').forEach(img => {

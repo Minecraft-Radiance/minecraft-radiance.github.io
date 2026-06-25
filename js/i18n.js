@@ -38,12 +38,20 @@ function updateLanguage(lang) {
             document.title = window.translations[lang]['site.title'];
         }
         if (window.translations[lang]['site.desc']) {
+            const title = window.translations[lang]['site.title'];
             const desc = window.translations[lang]['site.desc'];
-            document.querySelector('meta[name="description"]').setAttribute('content', desc);
-            document.querySelector('meta[property="og:title"]').setAttribute('content', window.translations[lang]['site.title']);
-            document.querySelector('meta[property="og:description"]').setAttribute('content', desc);
-            document.querySelector('meta[property="twitter:title"]').setAttribute('content', window.translations[lang]['site.title']);
-            document.querySelector('meta[property="twitter:description"]').setAttribute('content', desc);
+            const metaUpdates = [
+                ['meta[name="description"]', desc],
+                ['meta[property="og:title"]', title],
+                ['meta[property="og:description"]', desc],
+                ['meta[property="twitter:title"]', title],
+                ['meta[property="twitter:description"]', desc]
+            ];
+
+            metaUpdates.forEach(([selector, value]) => {
+                const element = document.querySelector(selector);
+                if (element && value) element.setAttribute('content', value);
+            });
         }
     }
 
