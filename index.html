@@ -91,7 +91,8 @@
     </style>
 
     <!-- 引入外部样式表 (包含字体定义和 Firefox 优化) -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- NOTE: bump ?v= on every release to bust CDN/browser cache for static assets -->
+    <link rel="stylesheet" href="css/style.css?v=0.1.6">
 </head>
 <body>
 
@@ -210,8 +211,8 @@
                         <iframe loading="lazy" src="https://player.bilibili.com/player.html?isOutside=true&aid=117354579105548&bvid=BV1QTaH6fErT&cid=42309127433&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"></iframe>
                     </div>
                     <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent pointer-events-none">
-                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_v016.title"></h3>
-                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_v016.desc"></p>
+                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_v016.title">Alpha v0.1.6 Showcase</h3>
+                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_v016.desc">DLSS / FSR frame generation, improved atmosphere, clouds, water and transparency, plus wet rain effects.</p>
                     </div>
                 </div>
 
@@ -221,8 +222,8 @@
                         <iframe loading="lazy" src="https://player.bilibili.com/player.html?isOutside=true&aid=116489092863315&bvid=BV1nC9sBBEjS&cid=38141627005&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"></iframe>
                     </div>
                     <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent pointer-events-none">
-                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_interview.title"></h3>
-                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_interview.desc"></p>
+                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_interview.title">Introduction to Radiance</h3>
+                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_interview.desc">An introduction to the Radiance project: what it is, its key features, and how to get started.</p>
                     </div>
                 </div>
 
@@ -392,11 +393,11 @@
                          onerror="this.src='https://placehold.co/800x600/1a1a1a/22d3ee?text=Compatibility'; this.onerror=null;">
                 </div>
                 <div class="w-full md:w-1/2 glass p-8 rounded-xl bg-black/40">
-                    <h2 class="text-3xl text-cyan-400 mb-6 font-bold" data-i18n="features_page.compat.title"></h2>
-                    <p class="text-gray-200 text-lg leading-relaxed mb-8" data-i18n="features_page.compat.desc"></p>
+                    <h2 class="text-3xl text-cyan-400 mb-6 font-bold" data-i18n="features_page.compat.title">Cross-Version & Mod Compatibility</h2>
+                    <p class="text-gray-200 text-lg leading-relaxed mb-8" data-i18n="features_page.compat.desc">One Radiance build covering mainstream MC versions, loaders and popular content mods.</p>
                     <ul class="space-y-4 text-base text-gray-300">
-                        <li class="flex items-center"><i data-lucide="layers" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point1"></span></li>
-                        <li class="flex items-center"><i data-lucide="puzzle" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point2"></span></li>
+                        <li class="flex items-center"><i data-lucide="layers" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point1">1.20.1 / 1.21.1 / 1.21.4 × Fabric / Forge / NeoForge — nine version and loader combinations</span></li>
+                        <li class="flex items-center"><i data-lucide="puzzle" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point2">Ray-traced Distant Horizons terrain + Flywheel / Create and Sable rendering support</span></li>
                     </ul>
                 </div>
             </div>
@@ -614,11 +615,11 @@
     <script src="https://cdn.tailwindcss.com" defer></script>
 
     <script src="https://unpkg.com/lucide@1.49.0/dist/umd/lucide.min.js" defer></script>
-    <script src="js/translations.js" defer></script>
-    <script src="js/config.js" defer></script>
-    <script src="js/i18n.js" defer></script>
-    <script src="js/router.js" defer></script>
-    <script src="js/ui.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/translations.js?v=0.1.6" defer></script>
+    <script src="js/config.js?v=0.1.6" defer></script>
+    <script src="js/i18n.js?v=0.1.6" defer></script>
+    <script src="js/router.js?v=0.1.6" defer></script>
+    <script src="js/ui.js?v=0.1.6" defer></script>
+    <script src="js/main.js?v=0.1.6" defer></script>
 </body>
 </html>
