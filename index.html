@@ -199,6 +199,22 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 视频卡片 0: Alpha 0.1.6 Showcase (Newest) -->
+                <div class="glass p-0 overflow-hidden group relative" id="video-v016-card">
+                    <!-- English (YouTube) -->
+                    <div id="video-v016-en" class="w-full aspect-video">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/YUqNnc0EWpU?si=GTm8GVUDuS21ZzAJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- Chinese (Bilibili) -->
+                    <div id="video-v016-zh" class="hidden w-full aspect-video">
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=117354579105548&bvid=BV1QTaH6fErT&cid=42309127433&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"></iframe>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_v016.title"></h3>
+                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_v016.desc"></p>
+                    </div>
+                </div>
+
                 <!-- 视频卡片 1: Alpha 0.1.3 Showcase (Newest) -->
                 <div class="glass p-0 overflow-hidden group relative" id="video-alpha-card">
                     <!-- English (YouTube) -->
@@ -492,7 +508,7 @@
                     </a>
 
                     <!-- GitHub Release -->
-                    <a href="https://github.com/Minecraft-Radiance/Radiance/releases/tag/v0.1.5-alpha" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
+                    <a href="https://github.com/Minecraft-Radiance/Radiance/releases/tag/v0.1.6-alpha" target="_blank" rel="noopener noreferrer" class="btn-primary py-6 flex flex-col items-center justify-center group border-orange-500/50">
                         <span class="text-base mb-2 font-bold" data-i18n="download.github.title"></span>
                         <span class="text-sm text-gray-700 font-medium group-hover:text-black" data-i18n="download.preview.meta"></span>
                     </a>
