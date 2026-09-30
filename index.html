@@ -12,13 +12,13 @@
     <meta property="og:url" content="https://www.minecraft-radiance.com/">
     <meta property="og:title" content="Radiance - Minecraft Ray Tracing Mod">
     <meta property="og:description" content="Radiance - Next-Gen Minecraft Path Tracing engine mod. Rebuilt on Vulkan C++ backend, featuring native Hardware Ray Tracing support.">
-    <meta property="og:image" content="resources/logo-radiance.webp">
+    <meta property="og:image" content="https://www.minecraft-radiance.com/resources/logo-radiance.webp">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.minecraft-radiance.com/">
     <meta property="twitter:title" content="Radiance - Minecraft Ray Tracing Mod">
     <meta property="twitter:description" content="Radiance - Next-Gen Minecraft Path Tracing engine mod. Rebuilt on Vulkan C++ backend, featuring native Hardware Ray Tracing support.">
-    <meta property="twitter:image" content="resources/logo-radiance.webp">
+    <meta property="twitter:image" content="https://www.minecraft-radiance.com/resources/logo-radiance.webp">
     <!-- Preload critical font -->
     <link rel="preload" href="fonts/fusion-pixel/fusion-pixel-10px-monospaced-latin.ttf.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -215,6 +215,17 @@
                     </div>
                 </div>
 
+                <!-- 视频卡片：开发团队访谈 (仅中文 B 站源) -->
+                <div class="glass p-0 overflow-hidden group relative hidden" id="video-interview-card">
+                    <div class="w-full aspect-video">
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=116489092863315&bvid=BV1nC9sBBEjS&cid=38141627005&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"></iframe>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <h3 class="text-orange-400 font-bold text-lg" data-i18n="gallery.video_interview.title"></h3>
+                        <p class="text-gray-300 text-sm" data-i18n="gallery.video_interview.desc"></p>
+                    </div>
+                </div>
+
                 <!-- 视频卡片 1: Alpha 0.1.3 Showcase (Newest) -->
                 <div class="glass p-0 overflow-hidden group relative" id="video-alpha-card">
                     <!-- English (YouTube) -->
@@ -370,6 +381,22 @@
                     <ul class="space-y-4 text-base text-gray-300">
                         <li class="flex items-center"><i data-lucide="layers" class="w-5 h-5 mr-3 text-indigo-400"></i> <span data-i18n="features_page.pipeline.point1"></span></li>
                         <li class="flex items-center"><i data-lucide="zap" class="w-5 h-5 mr-3 text-yellow-400"></i> <span data-i18n="features_page.pipeline.point2"></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature Block 6: Compatibility -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+                <div class="w-full md:w-1/2 glass p-0 min-h-[300px] flex items-center justify-center bg-black/50 zoom-container group">
+                    <img id="img-feature-compat" src="https://raw.githubusercontent.com/Minecraft-Radiance/Radiance/948b29a35328ee812b9aa566fc8de2789100291a/.assets/cover-0.1.6.png" alt="Compatibility" width="800" height="600" class="w-full h-full object-cover min-h-[300px]" loading="lazy"
+                         onerror="this.src='https://placehold.co/800x600/1a1a1a/22d3ee?text=Compatibility'; this.onerror=null;">
+                </div>
+                <div class="w-full md:w-1/2 glass p-8 rounded-xl bg-black/40">
+                    <h2 class="text-3xl text-cyan-400 mb-6 font-bold" data-i18n="features_page.compat.title"></h2>
+                    <p class="text-gray-200 text-lg leading-relaxed mb-8" data-i18n="features_page.compat.desc"></p>
+                    <ul class="space-y-4 text-base text-gray-300">
+                        <li class="flex items-center"><i data-lucide="layers" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point1"></span></li>
+                        <li class="flex items-center"><i data-lucide="puzzle" class="w-5 h-5 mr-3 text-cyan-400"></i> <span data-i18n="features_page.compat.point2"></span></li>
                     </ul>
                 </div>
             </div>

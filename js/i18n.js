@@ -18,6 +18,7 @@ function updateLanguage(lang) {
 
     const v016En = document.getElementById('video-v016-en');
     const v016Zh = document.getElementById('video-v016-zh');
+    const interviewCard = document.getElementById('video-interview-card');
     const vAlphaEn = document.getElementById('video-alpha-en');
     const vAlphaZh = document.getElementById('video-alpha-zh');
     const v1En = document.getElementById('video1-en');
@@ -26,6 +27,7 @@ function updateLanguage(lang) {
     if (lang === 'zh') {
         if (v016En) v016En.classList.add('hidden');
         if (v016Zh) v016Zh.classList.remove('hidden');
+        if (interviewCard) interviewCard.classList.remove('hidden');
         if (vAlphaEn) vAlphaEn.classList.add('hidden');
         if (vAlphaZh) vAlphaZh.classList.remove('hidden');
         if (v1En) v1En.classList.add('hidden');
@@ -33,6 +35,7 @@ function updateLanguage(lang) {
     } else {
         if (v016En) v016En.classList.remove('hidden');
         if (v016Zh) v016Zh.classList.add('hidden');
+        if (interviewCard) interviewCard.classList.add('hidden');
         if (vAlphaEn) vAlphaEn.classList.remove('hidden');
         if (vAlphaZh) vAlphaZh.classList.add('hidden');
         if (v1En) v1En.classList.remove('hidden');

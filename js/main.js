@@ -11,7 +11,8 @@ window.addEventListener('load', () => {
             'img-feature-interact': SITE_CONFIG.featureImages.interact,
             'img-feature-upscale': SITE_CONFIG.featureImages.upscale,
             'img-feature-pbr': SITE_CONFIG.featureImages.pbr,
-            'img-feature-pipeline': SITE_CONFIG.featureImages.pipeline
+            'img-feature-pipeline': SITE_CONFIG.featureImages.pipeline,
+            'img-feature-compat': SITE_CONFIG.featureImages.compat
         };
 
         for (const [id, url] of Object.entries(featureImgMap)) {
