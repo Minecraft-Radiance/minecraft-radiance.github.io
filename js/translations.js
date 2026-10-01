@@ -160,7 +160,6 @@ window.translations = {
         'changelog.v0_1_0.item3': '基础 hardware 光线追踪管线与路径追踪支持,加入 DLSS 4.5 支持',
         'changelog.main_title': 'Radiance 版本历史',
         'footer.copyright': 'Radiance. 非官方 Minecraft Mod 项目.',
-        'footer.sponsor': '赞助',
         'footer.credits': 'Features Vulkan, DLSS and FSR technology. All trademarks are property of their respective owners.'
     },
     'en': {
@@ -324,7 +323,6 @@ window.translations = {
         'changelog.v0_1_0.item3': 'Basic hardware Ray Tracing, and path tracing support. Features DLSS 4.5.',
         'changelog.main_title': 'Radiance Version History',
         'footer.copyright': 'Radiance. Unofficial Minecraft Mod Project.',
-        'footer.sponsor': 'Sponsor',
         'footer.credits': 'Features Vulkan, DLSS and FSR technology. All trademarks are property of their respective owners.'
     }
 };
