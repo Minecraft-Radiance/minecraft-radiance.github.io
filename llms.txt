@@ -1,0 +1,44 @@
+# Radiance - Minecraft Ray Tracing Mod
+
+> Radiance is a free, unofficial Minecraft mod that replaces the OpenGL pipeline with a Vulkan C++ backend featuring native hardware ray tracing (path tracing). It supports Windows and Linux, Minecraft 1.20.1 / 1.21.1 / 1.21.4 on Fabric, Forge and NeoForge. Latest release: v0.1.6-alpha.
+
+## Overview
+
+- Official site: https://www.minecraft-radiance.com/
+- Source code: https://github.com/Minecraft-Radiance/Radiance
+- Core technology: Vulkan rendering backend (GLFW_NO_API window takeover), Vulkan Ray Tracing Pipeline (KHR) path tracing, real-time global illumination, physically based rendering (PBR) with roughness / metallic / normal maps, dynamic modular render pipeline with NVIDIA NRD denoising.
+- Upscaling and frame generation: NVIDIA DLSS 4.5 (upscaling, Ray Reconstruction, frame generation), AMD FSR 3.1 (upscaling + frame generation, cross-vendor), Intel XeSS SR (super resolution only, Windows build).
+- Mod compatibility: ray-traced Distant Horizons distant terrain, plus Flywheel / Create rendering support.
+
+## Version and Compatibility
+
+- Latest: v0.1.6-alpha (2026-09-30). v0.1.6 highlights: DLSS / FSR frame generation, NRD + DLSS super-resolution pipeline, ray-traced Distant Horizons terrain, improved Advanced shader pack (day/night lighting, atmosphere, volumetrics, clouds, wet rain effects), improved water and transparency, nine version-and-loader combinations.
+- Minecraft versions: 1.20.1, 1.21.1, 1.21.4.
+- Mod loaders: Fabric, Forge, NeoForge.
+- Operating systems: Windows and Linux (x86_64 CPU).
+
+## System Requirements
+
+- OS: Windows / Linux; CPU: x86_64 processor.
+- GPU with the VK_KHR_ray_tracing_pipeline extension (e.g. NVIDIA RTX 20 series and newer, AMD RX 9070 XT, Intel Arc). Details: https://vulkan.gpuinfo.org/
+
+## Download
+
+- GitHub Release (Windows and Linux): https://github.com/Minecraft-Radiance/Radiance/releases/tag/v0.1.6-alpha
+- CurseForge (Windows and Linux): https://www.curseforge.com/minecraft/mc-mods/radiance
+- Modrinth, Windows build: https://modrinth.com/mod/radiance-mod-windows
+- Modrinth, Linux build: https://modrinth.com/mod/radiance-mod-linux
+
+## Installation Notes
+
+- Place the mod file into the Minecraft `mods` folder.
+- NVIDIA DLSS runtime libraries are NOT bundled: download them from NVIDIA's official DLSS repository (v310.9.1) and place the matching triplet (super resolution, Ray Reconstruction, frame generation) in the `<instance>/radiance/` folder, keeping original filenames.
+- Windows users: if the game fails to start, remove or rename `msvcp140.dll`, `vcruntime140.dll` and `vcruntime140_1.dll` inside the JDK `bin` folder, then install the latest Microsoft Visual C++ Redistributable: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+- Starting from v0.1.4-alpha, labPBR textures load directly without preprocessing.
+
+## Community and Media
+
+- GitHub: https://github.com/Minecraft-Radiance/Radiance
+- Discord: https://discord.gg/y4Uzf6acqk
+- YouTube: https://www.youtube.com/@RadianceMod
+- Sponsor (Buy Me a Coffee): https://buymeacoffee.com/radiance.mod

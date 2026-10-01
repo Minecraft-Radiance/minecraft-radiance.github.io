@@ -1,0 +1,44 @@
+# Radiance - Minecraft 光线追踪 Mod
+
+> Radiance 是一款免费的非官方 Minecraft Mod，用 Vulkan C++ 后端重写渲染管线（接管 OpenGL），提供原生 hardware 光线追踪（路径追踪）。支持 Windows 与 Linux，覆盖 Minecraft 1.20.1 / 1.21.1 / 1.21.4 的 Fabric、Forge 与 NeoForge。最新版本：v0.1.6-alpha。
+
+## 项目简介
+
+- 官网：https://www.minecraft-radiance.com/
+- 源码：https://github.com/Minecraft-Radiance/Radiance
+- 核心技术：Vulkan 渲染后端（GLFW_NO_API 模式接管窗口）、Vulkan Ray Tracing Pipeline (KHR) 全路径追踪、实时动态全局光照、PBR 物理材质（粗糙度 / 金属度 / 法线贴图）、动态模块化渲染管线（集成 NVIDIA NRD 降噪，跨显卡厂商可用）。
+- 超分与帧生成：NVIDIA DLSS 4.5（超分、光线重构、帧生成）、AMD FSR 3.1（超分 + 帧生成，全平台）、Intel XeSS SR（仅超分，Windows 版本）。
+- 模组兼容：Distant Horizons 远景地形光追，Flywheel / Create（机械动力）渲染适配。
+
+## 版本与兼容
+
+- 最新版：v0.1.6-alpha（2026-09-30）。主要更新：DLSS / FSR 帧生成、NRD + DLSS 超分管线、Distant Horizons 远景光追、Advanced 光影包改进（昼夜光照、大气、体积光、云雾、雨天湿润效果）、水面与透明材质改进，共九种版本与加载器组合。
+- Minecraft 版本：1.20.1、1.21.1、1.21.4。
+- 加载器：Fabric、Forge、NeoForge。
+- 操作系统：Windows 与 Linux（x86_64 CPU）。
+
+## 系统需求
+
+- 操作系统：Windows / Linux；处理器：x86_64 架构 CPU。
+- 显卡须支持 VK_KHR_ray_tracing_pipeline（RTX 20 系及以上、RX 9070 XT、Intel Arc 等，详查 https://vulkan.gpuinfo.org/ ）。
+
+## 下载
+
+- GitHub Release（支持 Windows 与 Linux）：https://github.com/Minecraft-Radiance/Radiance/releases/tag/v0.1.6-alpha
+- CurseForge（支持 Windows 与 Linux）：https://www.curseforge.com/minecraft/mc-mods/radiance
+- Modrinth（Windows 版）：https://modrinth.com/mod/radiance-mod-windows
+- Modrinth（Linux 版）：https://modrinth.com/mod/radiance-mod-linux
+
+## 安装要点
+
+- 将 Mod 文件放入 `mods` 文件夹。
+- Radiance 不捆绑 NVIDIA DLSS 运行时：请从 NVIDIA 官方 DLSS 仓库获取 v310.9.1 同版本三件套（超分、光线重构、帧生成），放入 `<instance>/radiance/` 文件夹，保留原始文件名。
+- Windows 用户若无法启动：先处理（重命名/删除）JDK `bin` 文件夹中的 `msvcp140.dll`、`vcruntime140.dll`、`vcruntime140_1.dll`，再安装最新 Microsoft Visual C++ Redistributable：https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+- 自 v0.1.4-alpha 起，labPBR 纹理可直接加载，无需预处理。
+
+## 社区与媒体
+
+- GitHub：https://github.com/Minecraft-Radiance/Radiance
+- Discord：https://discord.gg/y4Uzf6acqk
+- YouTube：https://www.youtube.com/@RadianceMod
+- 赞助支持（Buy Me a Coffee）：https://buymeacoffee.com/radiance.mod

@@ -3,6 +3,7 @@ let currentLang = userLang.startsWith('zh') ? 'zh' : 'en';
 
 function updateLanguage(lang) {
     currentLang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     
     if (!window.translations) {
         console.error("Translations not loaded!");
